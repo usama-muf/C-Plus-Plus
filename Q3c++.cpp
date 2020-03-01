@@ -1,35 +1,70 @@
 #include<iostream>
+#include<string.h>
+#include<stdio.h>
 using namespace std;
 
-class acc_detail
-{	public:
-	char name[30];
-	long int acc_no;
-	char acc_type[8];
-	double balance;
-	
+class bank
+{	
+		int accno;
+	char nm[50];
+
+	char acctp[8];
+	float bal;
+	public:
+		bank(int acc_no, char *name,char *acc_type,float balance)
+		{
+			accno=acc_no;
+			strcpy(nm,name);
+			strcpy(acctp,acc_type);
+			bal=balance;
+		}
+	void deposit();
+	void withdraw();
+	void display();
 };
-int assign(char n,long int accno, char type, double bal)
+void bank::deposit()
 {
-return n;
-return accno;
-return type;
-return bal;
+	int depamt;
+	cout<<"Enter amount to depositted :";
+	cin>>depamt;
+	bal=bal+depamt;
 }
-int deposit(int amt)
+void bank::withdraw()
 {
-	
+	int witamt;
+	cout<<"Enter amount to be withdrawn";
+	cin>>witamt;
+	if(witamt>bal)
+	cout<<"ERROR : NOT SUFFICIENT BALANCE";
+	bal=bal-witamt;
 }
+void bank::display()
+{	cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
+	cout<<"Name of Employee : "<<nm;
+	cout<<"\nAccount Number of employee :"<<accno;
+	cout<<"\nAccount Type :"<<acctp;
+	cout<<"\nBalace :"<<bal;
+	cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
+
+}
+
 int main()
-{	int n, accno,type,bal;
-	cout<<"Enter Name of Employee :";
-gets(n);
+{	int acc_no;
+ 	char name[50],acc_type[12];
+	float balance;
+	
 	cout<<"Enter Account Number of Employee :";
-	cin>>accno;
+	cin>>acc_no;
+	cout<<"Enter Name of Employee :";
+	cin>>name;
 	cout<<"Enter Account type of Employee :";
-gets(type);
+	cin>>acc_type;
 	cout<<"Enter balance of Employee :";
-	cin>>bal;
-	cout<<"Initial Values: "<<assign(n, accno,type,bal);
-	return 1;
+	cin>>balance;
+	
+	bank b1(acc_no,name,acc_type,balance);
+	b1.deposit();
+	b1.withdraw();
+	b1.display();
+	return 0;
 }
