@@ -38,10 +38,14 @@ void bank::deposit()
 void bank::withdraw()
 {
 	int witamt;
+	statment:
 	cout<<"Enter amount to be withdrawn";
 	cin>>witamt;
 	if(witamt>bal)
+	{
 	cout<<"\n\nERROR : NOT SUFFICIENT BALANCE\n\n";
+	goto statment;
+	}
 	else
 	bal=bal-witamt;
 }

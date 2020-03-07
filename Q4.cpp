@@ -20,11 +20,11 @@ void account_holder::details()
 }
 int main()
 {
-	int user_id,acc;
+	int id,acc_no;
 	char pass[20];
 	char passwo[]="usama"; 
 	cout<<"Enter user id: ";
-	cin>>user_id;
+	cin>>id;
 	cout<<"Enter password: ";
 	cin>>pass;
 	if(strcmp(pass,passwo))
@@ -33,7 +33,7 @@ int main()
 	}
 	else
 		cout<<"Enter account no";
-		cin>>acc;
+		cin>>acc_no;
 	//int details();
 	account_holder s1;
 	s1.details();
