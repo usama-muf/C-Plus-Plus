@@ -23,9 +23,9 @@ int main()
 	int user_id,acc;
 	char pass[20];
 	char passwo[]="usama"; 
-	cout<<"Enter user id:";
+	cout<<"Enter user id: ";
 	cin>>user_id;
-	cout<<"Enter password";
+	cout<<"Enter password: ";
 	cin>>pass;
 	if(strcmp(pass,passwo))
 	{	

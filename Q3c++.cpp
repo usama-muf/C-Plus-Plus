@@ -4,24 +4,30 @@
 using namespace std;
 
 class bank
-{	
+{		public:
+
 		int accno;
 	char nm[50];
 
 	char acctp[8];
 	float bal;
-	public:
-		bank(int acc_no, char *name,char *acc_type,float balance)
-		{
-			accno=acc_no;
-			strcpy(nm,name);
-			strcpy(acctp,acc_type);
-			bal=balance;
-		}
+	void init_val();
 	void deposit();
 	void withdraw();
 	void display();
 };
+void bank::init_val()
+{	
+	cout<<"Enter Account Number of Employee :";
+	cin>>accno;
+	cout<<"Enter Name of Employee :";
+	cin>>nm;
+	cout<<"Enter Account type of Employee :";
+	cin>>acctp;
+	cout<<"Enter balance of Employee :";
+	cin>>bal;
+}
+
 void bank::deposit()
 {
 	int depamt;
@@ -35,34 +41,27 @@ void bank::withdraw()
 	cout<<"Enter amount to be withdrawn";
 	cin>>witamt;
 	if(witamt>bal)
-	cout<<"ERROR : NOT SUFFICIENT BALANCE";
+	cout<<"\n\nERROR : NOT SUFFICIENT BALANCE\n\n";
+	else
 	bal=bal-witamt;
 }
 void bank::display()
-{	cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
-	cout<<"Name of Employee : "<<nm;
+{	//cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
+	cout<<"\nName of Employee : "<<nm;
 	cout<<"\nAccount Number of employee :"<<accno;
 	cout<<"\nAccount Type :"<<acctp;
 	cout<<"\nBalace :"<<bal;
-	cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
+//	cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-";
 
 }
 
 int main()
-{	int acc_no;
- 	char name[50],acc_type[12];
-	float balance;
+{	cout<<"Enter details of Account\n\n";
 	
-	cout<<"Enter Account Number of Employee :";
-	cin>>acc_no;
-	cout<<"Enter Name of Employee :";
-	cin>>name;
-	cout<<"Enter Account type of Employee :";
-	cin>>acc_type;
-	cout<<"Enter balance of Employee :";
-	cin>>balance;
 	
-	bank b1(acc_no,name,acc_type,balance);
+	
+	bank b1;
+	b1.init_val();
 	b1.deposit();
 	b1.withdraw();
 	b1.display();
